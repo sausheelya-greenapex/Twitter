@@ -1,0 +1,36 @@
+<section id="login-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-4">
+        <div id="msform">
+          <%=form_for :login, url:create_tweet_path do |f|%>
+            <div class="form-field">
+              <h2>Tweet</h2>
+              <label id="error" class="alert alert-danger" style="display: none;"></label> 
+              <div class="form-row">
+                <div class="form-group col-3 tell-code pl-1">
+                  <input type="text" name="body" id="tweet" class="form-control phone" placeholder="Enter Your Tweet">
+                </div>
+               
+              </div>
+            
+              
+              <div class="row">
+                <div class="col-md-12 ">
+                  <input type="submit" class="action-button w-100 mt-5 mb-4" id="submit" value="submit">
+                </div>
+              </div>
+              
+             
+            </div>
+          <%end%>
+        </div>
+      </div>
+      <div class="col-lg-8 pr-0">
+        <div class="login-right">
+          <!-- <img src="/assests/website/signup_image.png" />-->        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

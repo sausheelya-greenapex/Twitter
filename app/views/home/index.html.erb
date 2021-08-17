@@ -1,0 +1,14 @@
+<div>
+  <% @tweets.each do |tweet| %>
+    <tr>
+      <h1><td><%= tweet.user.email %></td></h1>
+      <h2><td><%= tweet.body %></td></h2>
+      <h3><td><%= tweet.created_at %></td></h3>
+      <h2><td><%= link_to 'Comment',create_comment_path(@user) %></td><h2>
+    </tr>
+  <% end %>
+</div>
+ 
+<%= link_to 'New Tweet', new_tweet_path(@user) %>
+
+
