@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get "new/tweet" => "home#new"
   post "create/tweet" => "home#create"
   get "create/comment" => "home#comment"
+  get "retweet" => "home#retweet"
 end

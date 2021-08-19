@@ -24,6 +24,21 @@ class HomeController < ApplicationController
   end
 
   def comment
+    
+  end
+
+  def retweet
+    @tweet =Tweet.find_by_id(params[:tweet_id])
+    if @tweet
+      if  Retweet.find_by(user_id: current_user.id, tweet_id:@tweet.id)
+          redirect_to root_path, alert: 'Already Retweeted'
+      else
+         @retweet = Retweet.create(user_id: current_user.id, tweet_id:@tweet.id)
+          redirect_to root_path, alert: 'Retweeted'
+      end
+    else
+      redirect_to root_path, alert: 'Tweet Not Found'
+    end
   end
  
   private
