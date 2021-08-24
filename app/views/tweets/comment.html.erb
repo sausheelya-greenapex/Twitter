@@ -5,13 +5,12 @@
                       <h2>Comment</h2>
 
         <div id="msform">
-           <div class="comments-for-each-post">
-            <%if @comments.present?%>
-            <%@comments.each do |cmnt|%>
-            <h3><td><%=cmnt.body%></td></h3>
-            <%end%>
-            <%end%>
-           </div>
+          <!--  <div class="comments-for-each-post">
+            <%#if @comments.present?%>
+            <%#@comments.each do |cmnt|%>
+            <h3><td><%#=cmnt.body%></td></h3>
+            <%#end%>
+           </div> -->
           <%=form_for :comment, url:post_comment_path do |f|%>
           <input type="hidden" name="tweet_id" value="<%=@tweet.id%>">
             <div class="form-field">

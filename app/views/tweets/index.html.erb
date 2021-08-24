@@ -14,6 +14,11 @@
     <tr>
       <h1><td><%= tweet.user.email %></td></h1>
       <h2><td><%= tweet.body %></td></h2>
+      <h2> All Comments</h2>
+      <h2><td><%tweet.comments.pluck(:body).each do |cmnts|%>
+       <h3><td><%=cmnts%></td></h3> 
+        <%end%>
+      </td></h2>
       <h3><td><%= tweet.created_at %></td></h3>
       <h2><td><%= link_to 'Comment',create_comment_path(tweet_id:tweet.id) %></td><h2>
       <h2><td><%= link_to 'Retweet',retweet_path(tweet_id:tweet.id) %></td><h2>
