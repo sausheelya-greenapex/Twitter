@@ -1,0 +1,24 @@
+<div>
+   <div class="col-lg-12">
+        <h2>All Tweets</h2>
+        <span class="pull-right">
+        <%=form_for :search,url:root_path,method: :get,:html=>{:class=>"form-inline"} do |f|%>
+          <div class="form-group ibox-tools form-inline"> 
+            <input type="text" name="keyword" class="form-control" placeholder="Search by Tweet" autocomplete="off">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        <%end%>
+      </span>
+    </div>
+  <% @tweets.each do |tweet| %>
+    <tr>
+      <h1><td><%= tweet.user.email %></td></h1>
+      <h2><td><%= tweet.body %></td></h2>
+      <h3><td><%= tweet.created_at %></td></h3>
+      <h2><td><%= link_to 'Comment',create_comment_path(tweet_id:tweet.id) %></td><h2>
+      <h2><td><%= link_to 'Retweet',retweet_path(tweet_id:tweet.id) %></td><h2>
+    </tr>
+  <% end %>
+</div>
+ 
+<%= link_to 'New Tweet', new_tweet_path(@user) %>

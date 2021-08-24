@@ -2,14 +2,23 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-4">
+                      <h2>Comment</h2>
+
         <div id="msform">
-          <%=form_for :login, url:create_tweet_path do |f|%>
+           <div class="comments-for-each-post">
+            <%if @comments.present?%>
+            <%@comments.each do |cmnt|%>
+            <h3><td><%=cmnt.body%></td></h3>
+            <%end%>
+            <%end%>
+           </div>
+          <%=form_for :comment, url:post_comment_path do |f|%>
+          <input type="hidden" name="tweet_id" value="<%=@tweet.id%>">
             <div class="form-field">
-              <h2>Tweet</h2>
               <label id="error" class="alert alert-danger" style="display: none;"></label> 
               <div class="form-row">
                 <div class="form-group col-3 tell-code pl-1">
-                  <input type="text" name="body" id="tweet" class="form-control phone" placeholder="Enter Your Tweet">
+                  <input type="text" name="body" id="tweet" class="form-control phone" placeholder="Enter Your Comment">
                 </div>
                
               </div>
